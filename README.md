@@ -30,6 +30,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0004-median-of-two-sorted-arrays](https://github.com/hsinghal11/Sem5-DSA/tree/master/0004-median-of-two-sorted-arrays) |
+| [0118-pascals-triangle](https://github.com/hsinghal11/Sem5-DSA/tree/master/0118-pascals-triangle) |
 ## Binary Search
 |  |
 | ------- |
@@ -46,4 +47,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0061-rotate-list](https://github.com/hsinghal11/Sem5-DSA/tree/master/0061-rotate-list) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0118-pascals-triangle](https://github.com/hsinghal11/Sem5-DSA/tree/master/0118-pascals-triangle) |
 <!---LeetCode Topics End-->
