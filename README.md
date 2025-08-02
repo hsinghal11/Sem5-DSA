@@ -31,6 +31,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0004-median-of-two-sorted-arrays](https://github.com/hsinghal11/Sem5-DSA/tree/master/0004-median-of-two-sorted-arrays) |
 | [0118-pascals-triangle](https://github.com/hsinghal11/Sem5-DSA/tree/master/0118-pascals-triangle) |
+| [3620-maximum-number-of-distinct-elements-after-operations](https://github.com/hsinghal11/Sem5-DSA/tree/master/3620-maximum-number-of-distinct-elements-after-operations) |
 ## Binary Search
 |  |
 | ------- |
@@ -63,4 +64,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0563-binary-tree-tilt](https://github.com/hsinghal11/Sem5-DSA/tree/master/0563-binary-tree-tilt) |
+## Greedy
+|  |
+| ------- |
+| [3620-maximum-number-of-distinct-elements-after-operations](https://github.com/hsinghal11/Sem5-DSA/tree/master/3620-maximum-number-of-distinct-elements-after-operations) |
+## Sorting
+|  |
+| ------- |
+| [3620-maximum-number-of-distinct-elements-after-operations](https://github.com/hsinghal11/Sem5-DSA/tree/master/3620-maximum-number-of-distinct-elements-after-operations) |
 <!---LeetCode Topics End-->
