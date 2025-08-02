@@ -51,4 +51,16 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0118-pascals-triangle](https://github.com/hsinghal11/Sem5-DSA/tree/master/0118-pascals-triangle) |
+## Tree
+|  |
+| ------- |
+| [0563-binary-tree-tilt](https://github.com/hsinghal11/Sem5-DSA/tree/master/0563-binary-tree-tilt) |
+## Depth-First Search
+|  |
+| ------- |
+| [0563-binary-tree-tilt](https://github.com/hsinghal11/Sem5-DSA/tree/master/0563-binary-tree-tilt) |
+## Binary Tree
+|  |
+| ------- |
+| [0563-binary-tree-tilt](https://github.com/hsinghal11/Sem5-DSA/tree/master/0563-binary-tree-tilt) |
 <!---LeetCode Topics End-->
