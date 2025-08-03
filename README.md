@@ -31,6 +31,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0004-median-of-two-sorted-arrays](https://github.com/hsinghal11/Sem5-DSA/tree/master/0004-median-of-two-sorted-arrays) |
 | [0118-pascals-triangle](https://github.com/hsinghal11/Sem5-DSA/tree/master/0118-pascals-triangle) |
+| [0982-minimum-increment-to-make-array-unique](https://github.com/hsinghal11/Sem5-DSA/tree/master/0982-minimum-increment-to-make-array-unique) |
 | [3620-maximum-number-of-distinct-elements-after-operations](https://github.com/hsinghal11/Sem5-DSA/tree/master/3620-maximum-number-of-distinct-elements-after-operations) |
 ## Binary Search
 |  |
@@ -67,9 +68,15 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Greedy
 |  |
 | ------- |
+| [0982-minimum-increment-to-make-array-unique](https://github.com/hsinghal11/Sem5-DSA/tree/master/0982-minimum-increment-to-make-array-unique) |
 | [3620-maximum-number-of-distinct-elements-after-operations](https://github.com/hsinghal11/Sem5-DSA/tree/master/3620-maximum-number-of-distinct-elements-after-operations) |
 ## Sorting
 |  |
 | ------- |
+| [0982-minimum-increment-to-make-array-unique](https://github.com/hsinghal11/Sem5-DSA/tree/master/0982-minimum-increment-to-make-array-unique) |
 | [3620-maximum-number-of-distinct-elements-after-operations](https://github.com/hsinghal11/Sem5-DSA/tree/master/3620-maximum-number-of-distinct-elements-after-operations) |
+## Counting
+|  |
+| ------- |
+| [0982-minimum-increment-to-make-array-unique](https://github.com/hsinghal11/Sem5-DSA/tree/master/0982-minimum-increment-to-make-array-unique) |
 <!---LeetCode Topics End-->
