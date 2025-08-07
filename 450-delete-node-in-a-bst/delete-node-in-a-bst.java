@@ -29,9 +29,9 @@ class Solution {
                 }else if(root.left == null){
                     return root.right;
                 }else{
-                    int max = max(root.left);
-                    root.left = deleteNode(root.left, max);
-                    root.val = max;
+                    int min = min(root.right);
+                    root.right = deleteNode(root.right, min);
+                    root.val = min;
                 }
             }
             return root;
@@ -52,6 +52,6 @@ class Solution {
                 return Integer.MAX_VALUE;
             }
             int min = min(root.left);
-            return Math.max(min, root.val);
+            return Math.min(min, root.val);
         }
     }
