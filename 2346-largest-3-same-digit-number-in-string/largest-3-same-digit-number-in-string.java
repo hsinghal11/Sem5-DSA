@@ -1,12 +1,11 @@
 class Solution {
-    public String largestGoodInteger(String s) {
-        char ans=' ';
-        for(int i=0; i< s.length()-2; i++){
-            if(s.charAt(i)==s.charAt(i+1) && s.charAt(i+1)==s.charAt(i+2)){
-                if(ans<s.charAt(i)) ans = s.charAt(i);
-            }
+    public String largestGoodInteger(String num) {
+         String[] numbers={"999","888","777","666","555","444","333","222","111","000"};
+     for(String i:numbers){
+        if(num.contains(i)){
+            return i;
         }
-        if(ans == ' ')return "";
-        return (ans+""+ans+""+ans);
+     }
+     return "";
     }
 }
