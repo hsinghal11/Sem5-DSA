@@ -1,46 +1,36 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        if(root == null){
-            return new ArrayList<>();
-        }
+        if (root == null) return new ArrayList<>();
+
         Queue<TreeNode> q = new LinkedList<>();
         List<List<Integer>> ans = new ArrayList<>();
+        boolean zigzag = false; // level 0 (root) is left to right
+
         q.add(root);
-        boolean zigzag = true;
-        while(!q.isEmpty()){
-            List<Integer> ll = new ArrayList<>();
+
+        while (!q.isEmpty()) {
+            LinkedList<Integer> ll = new LinkedList<>();
             int n = q.size();
-            while(n-- > 0){
+
+            while (n-- > 0) {
                 TreeNode node = q.poll();
-                ll.add(node.val);
-                    if(node.left != null){
-                        q.add(node.left);
-                    }
-                    if(node.right != null){
-                        q.add(node.right);
-                    }
+
+                // add values based on zigzag flag
+                if (zigzag) {
+                    ll.addFirst(node.val); 
+                } else {
+                    ll.addLast(node.val);
+                }
+
+                // always enqueue children in left → right order
+                if (node.left != null) q.add(node.left);
+                if (node.right != null) q.add(node.right);
             }
-            if(!zigzag){
-                Collections.reverse(ll);
-            }
-            zigzag = !zigzag;
+
             ans.add(ll);
+            zigzag = !zigzag; // flip
         }
+
         return ans;
     }
 }
