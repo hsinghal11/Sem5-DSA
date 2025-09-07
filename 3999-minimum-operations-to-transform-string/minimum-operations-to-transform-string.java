@@ -1,10 +1,8 @@
 class Solution {
     public int minOperations(String s) {
         int ans = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(s.charAt(i) != 'a'){
-                ans = Math.max(ans, Math.abs((int)(s.charAt(i)-123)));
-            } 
+        for(char c : s.toCharArray()){
+            ans = Math.max(ans, (26- (c-'a'))%26);     
         }
         return ans;
     }
