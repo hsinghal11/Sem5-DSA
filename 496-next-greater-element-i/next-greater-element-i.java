@@ -1,16 +1,17 @@
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int[] ans = new int[nums1.length];
-        HashMap<Integer,Integer> mp = new HashMap<>();
+        int[] freq = new int[10001];
+        Arrays.fill(freq,-1);
         for(int i=0; i<nums1.length; i++){
-            mp.put(nums1[i],i);
+            freq[nums1[i]] = i;
         }
         Stack<Integer> st = new Stack<>();
         for(int i=0; i<nums2.length; i++){
             while(!st.isEmpty() &&  nums2[i] > st.peek()){
                 int ele = st.pop();
-                if(mp.containsKey(ele)){
-                    int idx = mp.get(ele);
+                if(freq[ele] != -1){
+                    int idx = freq[ele];
                     ans[idx] = nums2[i];
                 }
             }
