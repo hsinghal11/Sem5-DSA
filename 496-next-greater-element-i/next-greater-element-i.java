@@ -1,25 +1,21 @@
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        int[] ans = new int[nums1.length];
-        int[] freq = new int[10001];
-        Arrays.fill(freq,-1);
-        for(int i=0; i<nums1.length; i++){
-            freq[nums1[i]] = i;
-        }
-        Stack<Integer> st = new Stack<>();
+        int[] freq = new int[11111];
         for(int i=0; i<nums2.length; i++){
-            while(!st.isEmpty() &&  nums2[i] > st.peek()){
-                int ele = st.pop();
-                if(freq[ele] != -1){
-                    int idx = freq[ele];
-                    ans[idx] = nums2[i];
+            freq[nums2[i]] = i;
+        }
+        for(int i=0; i<nums1.length; i++){
+            boolean flag = true;
+            for(int j=freq[nums1[i]]; j<nums2.length; j++){
+                if(nums2[j] > nums2[freq[nums1[i]]]){
+                    nums1[i] = nums2[j];
+                    flag = !flag;
+                    break;
                 }
             }
-            st.push(nums2[i]);
+            if(flag)
+            nums1[i] = -1;
         }
-        for(int i=0; i<nums1.length; i++){
-            if(ans[i] == 0) ans[i] = -1;
-        }
-        return ans;
+        return nums1;
     }
 }
