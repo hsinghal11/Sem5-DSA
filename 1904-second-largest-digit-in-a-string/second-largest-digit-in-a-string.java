@@ -4,7 +4,7 @@ class Solution {
         int max2 = -1;
         for(int i=0; i<s.length(); i++){
             if(Character.isDigit(s.charAt(i))){
-                int ele = Integer.parseInt(s.charAt(i)+"");
+                int ele = s.charAt(i)-'0';
                 if(ele > max){
                     max2 = max;
                     max = ele;
