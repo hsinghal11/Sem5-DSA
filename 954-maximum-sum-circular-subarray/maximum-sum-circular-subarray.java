@@ -13,10 +13,7 @@ class Solution {
             t_max = Math.max(t_max, max);
             t_min = Math.min(t_min, min);
         }
-        if(max > 0){
-            return Math.max(total-t_min, t_max);
-        }else{
-            return t_max;
-        }
+        return max > 0?Math.max(total-t_min, t_max):t_max;
+        
     }
 }
