@@ -4,7 +4,8 @@ class Solution {
         for(char c: s.toCharArray()){
             freq[c]++;
         }
-        char ch[]=new char[s.length()];
+        // char ch[]=new char[s.length()];
+        StringBuilder sb = new StringBuilder();
         int i = 0;
         while(i < s.length()){
             int max = -1;
@@ -17,10 +18,14 @@ class Solution {
             }
 
             while(max-- > 0){
-                ch[i++] = (char)idx;
+                // ch[i++] = (char)idx;
+                
+                sb.append(((char)idx)+"");
+                i++;
             }
             freq[idx] = 0;
         }
-        return new String(ch);
+        return sb.toString();
+        // return new String(ch);
     }
 }
