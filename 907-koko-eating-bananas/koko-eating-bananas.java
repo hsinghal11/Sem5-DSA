@@ -3,7 +3,7 @@ class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         int k = 0;
         int lo = 1;
-        int hi = Arrays.stream(piles).max().getAsInt();
+        int hi = Integer.MAX_VALUE;
         while(lo<=hi){
             int mid = lo + (hi-lo)/2;
             if(isitpossible(piles,mid,h)){
