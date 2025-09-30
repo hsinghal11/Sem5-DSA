@@ -1,6 +1,6 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        Map<Character, Integer> mp = new HashMap<>();
+        int[] f = new int[128];
         int si = 0;
         int ei = 0;
         int n = s.length();
@@ -9,13 +9,13 @@ class Solution {
         while(ei<n){
             // grow
             char rc = s.charAt(ei);
-            mp.put(rc, mp.getOrDefault(rc, 0)+1);
-            maxF = Math.max(maxF, mp.get(rc));
+            f[rc]++;
+            maxF = Math.max(maxF, f[rc]);
             int len = ei-si+1;
             // shrink
             while(len - maxF >k){
                 char lc = s.charAt(si);
-                mp.put(lc, mp.get(lc)-1);
+                f[lc]--;
                 si++;
                 len = ei-si+1;
             }
