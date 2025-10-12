@@ -1,24 +1,20 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> l = new ArrayList<>();
-        solve(candidates, target, ans, l, 0);
-        return ans;
-    }
+        List<List<List<Integer>>> dp = new ArrayList<>();
+        for (int i = 0; i <= target; i++) dp.add(new ArrayList<>());
 
-    public void solve(int[] candidates, int target, List<List<Integer>> ans, List<Integer> l, int idx){
-        if(target == 0){
-            ans.add(new ArrayList<>(l));
-            return;
+        dp.get(0).add(new ArrayList<>()); // base case: one way to make 0
+
+        for (int num : candidates) {
+            for (int sum = num; sum <= target; sum++) {
+                for (List<Integer> comb : dp.get(sum - num)) {
+                    List<Integer> newComb = new ArrayList<>(comb);
+                    newComb.add(num);
+                    dp.get(sum).add(newComb);
+                }
+            }
         }
-        if(target < 0){
-            return;
-        }
-        for(int i=idx; i<candidates.length; i++){
-            l.add(candidates[i]);
-            solve(candidates, target - candidates[i], ans, l, i);
-            l.removeLast();
-        }
-        
+
+        return dp.get(target);
     }
 }
