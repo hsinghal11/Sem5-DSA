@@ -6,8 +6,8 @@ class LRUCache {
         Node next;
         Node prev;
         Node(int key, int val){
-            this.key = key;
             this.val = val;
+            this.key = key;
         }
     }
 
@@ -28,69 +28,62 @@ class LRUCache {
     }
     
     public int get(int key) {
-        if (!map.containsKey(key)) return -1;
-
-        Node node = map.get(key);
-
-        // Move node to tail (most recently used)
-        if (node != tail) {
-            remove(node);
-            insert(node);
-        }
-
-        return node.val;
+        if(!map.containsKey(key)) return -1;
+        Node nn = map.get(key);
+        remove(nn);
+        insert(nn);
+        return nn.val;
     }
-
+    
     public void put(int key, int value) {
-        // If key already exists, update value and move to tail
-        if (map.containsKey(key)) {
-            Node existing = map.get(key);
-            existing.val = value;
-            if (existing != tail) {
-                remove(existing);
-                insert(existing);
-            }
+        if(map.containsKey(key)){
+            Node nn = map.get(key);
+            remove(nn);
+            nn.val = value;
+            insert(nn);
             return;
         }
-
-        // If cache is full, remove least recently used (head)
-        if (len == size) {
-            map.remove(head.key);
-            remove(head);
-            len--;
-        }
-
-        // Create new node and insert at tail
         Node nn = new Node(key, value);
-        insert(nn);
-        map.put(key, nn);
-        len++;
+        if(len < size){
+            insert(nn);
+            len++;
+        }else{
+            remove(head);
+            insert(nn);
+        }
     }
 
-    private void insert(Node nn) {
-        if (head == null) {
+    private void insert(Node nn){
+        map.put(nn.key, nn);
+        if(head == null){
             head = tail = nn;
             return;
         }
-
         tail.next = nn;
         nn.prev = tail;
         tail = nn;
     }
 
-    private void remove(Node nn) {
+    private void remove(Node nn){
         if (nn == null) return;
+        map.remove(nn.key);
+        if(nn.prev != null){
+            nn.prev.next = nn.next;
+        }else{
+            head = nn.next; // bcoz if list is 2-> <- 3 -> <- 4 and we remove 2 so the head will be 3 this time 
+        }
 
-        if (nn.prev != null) nn.prev.next = nn.next;
-        else head = nn.next; // removing head
 
-        if (nn.next != null) nn.next.prev = nn.prev;
-        else tail = nn.prev; // removing tail
-
+        if(nn.next != null){
+            nn.next.prev = nn.prev;
+        }else{
+            tail = nn.prev; // bcoz if list is 2-> <- 3 -> <- 4 and we remove 4 so the tail will be 3 this time 
+        }
         nn.next = null;
         nn.prev = null;
-    }
+    } 
 }
+
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache obj = new LRUCache(capacity);
