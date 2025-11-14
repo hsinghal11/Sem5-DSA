@@ -7,8 +7,8 @@ class RecentCounter {
     public int ping(int t) {
         ll.add(t);
         int c = 0;
-        for(int i: ll){
-            if (i<=t && i>=t-3000){
+        for(int i=ll.size()-1; i>=0; i--){
+            if(ll.get(i) <= t && ll.get(i) >= t-3000){
                 c++;
             }
         }
