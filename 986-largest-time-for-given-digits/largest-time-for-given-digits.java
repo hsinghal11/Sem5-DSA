@@ -1,38 +1,25 @@
 class Solution {
     public String largestTimeFromDigits(int[] arr) {
-        int[] freq = new int[10];
-        for (int i = 0; i < arr.length; i++)
-            freq[arr[i]]++;
-        return getOutput(freq);
-    }
+        int ans = -1;
+        for(int i=0; i<4; i++){
+            for(int j=0; j<4; j++){
+                if(i == j) continue;
+                int hours = arr[i]*10+arr[j];
+                if(hours > 23) continue;
 
-    String getOutput(int[] freq) {
-        for (int i = 23; i >= 0; i--) {
-            for (int j = 59; j >= 0; j--) {
+                for(int k=0; k<4; k++){
+                    if(i==k || j==k) continue;
 
-                int hour1 = i / 10;
-                int hour2 = i % 10;
-                int min1 = j / 10;
-                int min2 = j % 10;
+                    int l = 6-(i+j+k);
+                    int min = arr[k]*10+arr[l];
+                    if(min > 59) continue;
 
-                int[] cpy = freq.clone();
-
-                if (cpy[hour1] > 0) {
-                    cpy[hour1]--;
-                    if (cpy[hour2] > 0) {
-                        cpy[hour2]--;
-                        if (cpy[min1] > 0) {
-                            cpy[min1]--;
-                            if (cpy[min2] > 0) {
-                                return String.format("%02d:%02d", i, j);
-                            }
-                        }
-                    }
+                    int totalMin = hours*60 + min;
+                    ans = Math.max(ans, totalMin);
                 }
-
             }
         }
-        return "";
+        if (ans == -1) return "";
+        return String.format("%02d:%02d", ans/60, ans%60);
     }
-
 }
