@@ -3,22 +3,19 @@ class Solution {
         Arrays.sort(arr);
         int n = arr.length;
         int m = arr[(n-1)/2];
-        int[][] indexArr = new int[n][2];
-
-        for(int i=0; i<n; i++){
-            indexArr[i][0] = Math.abs(arr[i]-m);
-            indexArr[i][1] = arr[i];
-        }
-
-        Arrays.sort(indexArr, (a,b) -> {
-            if(a[0] == b[0]) return b[1]-a[1];
-            return b[0]-a[0];
-        });
         
         int[] ans = new int[k];
 
-        for(int i=0; i<k; i++){
-            ans[i] = indexArr[i][1];
+        int i=0, j=n-1;
+
+        for(int id =0; id<k; id++){
+            if(Math.abs(arr[i] - m) > Math.abs(arr[j] - m)){
+                ans[id] = arr[i++];
+            }else if(Math.abs(arr[i] - m) < Math.abs(arr[j] - m)){
+                ans[id] = arr[j--];
+            }else{
+                ans[id] = arr[i] > arr[j]? arr[i++]: arr[j--];
+            }
         }
 
         return ans;
