@@ -12,20 +12,9 @@ class Solution {
             } 
             idx++;
         }
+        if((ql+qr) % 2 != 0) return true;
 
-        int diff = qr-ql;
-        System.out.println(ls+" "+rs);
-        if(diff == 0 && ls == rs) return false;
-        if(diff == 0 && ls != rs) return true;
-
-        if(diff%2 !=0) return true;
-
-        int sum_diff = rs -ls;
-        if(sum_diff*diff > 0) return true;
-
-        if(sum_diff%9 != 0) return true;
-    
-        if(Math.abs(sum_diff / (diff/2)) == 9) return false;
-        return true;
+        if(((qr-ql)*9)/2 != ls-rs) return true;
+        return false;
     }
 }
