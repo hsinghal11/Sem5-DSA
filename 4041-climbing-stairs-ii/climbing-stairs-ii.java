@@ -1,37 +1,29 @@
 class Solution {
     public int climbStairs(int n, int[] costs) {
         int[] dp = new int[n + 1];
-        Arrays.fill(dp, -1);
 
-        return findAns(costs, 0, dp);
-    }
+        dp[n] = 0;
 
-    public int findAns(int[] costs, int i, int[] dp) {
+        for (int i = n - 1; i >= 0; i--) {
+            dp[i] = Integer.MAX_VALUE;
 
-        if (i == costs.length) return 0;
+            // Jump 1
+            dp[i] = Math.min(dp[i],
+                costs[i] + 1 + dp[i + 1]);
 
-        if (dp[i] != -1) return dp[i];
+            // Jump 2
+            if (i + 2 <= n) {
+                dp[i] = Math.min(dp[i],
+                    costs[i + 1] + 4 + dp[i + 2]);
+            }
 
-        int ans = Integer.MAX_VALUE;
-
-        // Jump i -> i+1
-        if (i + 1 <= costs.length) {
-            ans = Math.min(ans,
-                costs[i] + 1 + findAns(costs, i + 1, dp));
+            // Jump 3
+            if (i + 3 <= n) {
+                dp[i] = Math.min(dp[i],
+                    costs[i + 2] + 9 + dp[i + 3]);
+            }
         }
 
-        // Jump i -> i+2
-        if (i + 2 <= costs.length) {
-            ans = Math.min(ans,
-                costs[i + 1] + 4 + findAns(costs, i + 2, dp));
-        }
-
-        // Jump i -> i+3
-        if (i + 3 <= costs.length) {
-            ans = Math.min(ans,
-                costs[i + 2] + 9 + findAns(costs, i + 3, dp));
-        }
-
-        return dp[i] = ans;
+        return dp[0];
     }
 }
